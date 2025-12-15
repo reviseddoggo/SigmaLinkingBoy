@@ -9,6 +9,7 @@ local TB = Instance.new("TextBox")
 local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 local UIGradient = Instance.new("UIGradient")
+local Value = Instance.new("BoolValue")
 
 --Properties:
 
@@ -51,6 +52,9 @@ UICorner.Parent = Frame
 
 UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
 UIGradient.Parent = Frame
+
+Value.Parent = Frame
+Value.Name = "val"
 
 -- Scripts:
 
