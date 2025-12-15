@@ -9,7 +9,7 @@ local TB = Instance.new("TextBox")
 local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 local UIGradient = Instance.new("UIGradient")
-local Value = Instance.new("BoolValue")
+local UIDD = Instance.new("UIDragDetector")
 
 --Properties:
 
@@ -23,6 +23,7 @@ Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.101573966, 167, 0.241860881, 223)
 Frame.Size = UDim2.new(0.217659131, 0, 0.228260875, 0)
+UIDD.Parent = Frame
 
 TB.Name = "TB"
 TB.Parent = Frame
@@ -53,31 +54,26 @@ UICorner.Parent = Frame
 UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
 UIGradient.Parent = Frame
 
-Value.Parent = Frame
-Value.Name = "val"
-
 -- Scripts:
 
-local function PAIET_fake_script() -- TextButton.LocalScript 
-	local script = Instance.new('LocalScript', TextButton)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		local val = script.Parent.Parent.val
-		if val.Value == true then
-			val.Value = false
-		else
-			val.Value = true
-		end
-		script.Parent.Text = tostring(val.Value)
-	end)
-end
-coroutine.wrap(PAIET_fake_script)()
-local function BLDHXYG_fake_script() -- Frame.LocalScript 
+local function JILEOK_fake_script() -- Frame.LocalScript 
 	local script = Instance.new('LocalScript', Frame)
 
+	local Value = false
+	
+	script.Parent.TextButton.MouseButton1Click:Connect(function()
+			if Value == false then
+				Value= true
+			else
+				Value= false
+			end
+			script.Parent.TextButton.Text = tostring(Value)
+		end)
+	
 	while true do
+		
 		wait()
-		if script.Parent.val.Value == true then
+		if Value == true then
 			print("runnning")
 			local contentText = script.Parent.TB.ContentText
 			local Char = game.Players.LocalPlayer.Character
@@ -92,4 +88,4 @@ local function BLDHXYG_fake_script() -- Frame.LocalScript
 		end
 	end
 end
-coroutine.wrap(BLDHXYG_fake_script)()
+coroutine.wrap(JILEOK_fake_script)()
